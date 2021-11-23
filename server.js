@@ -105,13 +105,13 @@ app.get("/playlist/:id/", async (req, res) => {
   res.json(videos);
 });
 
-//TODO Remaining video routes
-// // Video create route
-// app.post("/playlist", async (req, res) => {
-//     const playlist = await VidPlaylist.create(req.body);
-//     res.json(playlist);
-// });
-
+    // Video create route
+    app.post(`/playlist/newvideo`, async (req, res) => {
+        const video = await Video.create(req.body);
+        res.json(video);
+    });
+    
+    //TODO Remaining video routes
 // // Video update route
 // app.put("/playlist/:id", async (req, res) => {  
 //     const playlist = await VidPlaylist.findByIdAndUpdate(req.params.id, req.body, { new: true });
