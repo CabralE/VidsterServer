@@ -98,12 +98,30 @@ app.delete("/playlist/:id", async (req, res) => {
 
 //Playlist Show Route & Video Index Route
 app.get("/playlist/:id/", async (req, res) => {
-  const playlist = await VidPlaylist.findById(req.params.id);
-  console.log(playlist)  
-  res.json(playlist);
+    const playlist = await VidPlaylist.findById(req.params.id);
+    const name = playlist.playlistName
+    const videos = await Videos.find({ playlistName : name })
+
+  res.json(videos);
 });
 
+// // Video create route
+// app.post("/playlist", async (req, res) => {
+//     const playlist = await VidPlaylist.create(req.body);
+//     res.json(playlist);
+// });
 
+// // Video update route
+// app.put("/playlist/:id", async (req, res) => {  
+//     const playlist = await VidPlaylist.findByIdAndUpdate(req.params.id, req.body, { new: true });
+//     res.json(playlist);
+// });
+
+// // Video delete route
+// app.delete("/playlist/:id", async (req, res) => {
+//     await VidPlaylist.findByIdAndDelete(req.params.id);
+//     res.json({ message: "Playlist deleted" });
+// });
 
 // ________________________
 // Listener
