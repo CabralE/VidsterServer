@@ -100,7 +100,7 @@ app.delete("/playlist/:id", async (req, res) => {
 app.get("/playlist/:id/", async (req, res) => {
     const playlist = await VidPlaylist.findById(req.params.id);
     const name = playlist.playlistName
-    const videos = await Videos.find({ playlistName : name })
+    const videos = await Video.find({ playlistName : name })
 
   res.json(videos);
 });
