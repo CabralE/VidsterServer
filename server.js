@@ -38,17 +38,24 @@ mongoose.connection
 // ________________________
 
 const PlaylistSchema = new mongoose.Schema({
-    name: String,
-    songs: String,
-    genre: String,
-    artist: String,
-    album: String,
-    image: String,
-    url: String, 
+    userName: String,
+    playlistName: String,
+    playlistTags: String,
 });
 
 const Playlist = mongoose.model('Playlist', PlaylistSchema);
 
+const VideoSchema = new mongoose.Schema({
+    vidName: String,
+    vidUrl: String,
+    vidChannel: String,
+    vidCategories: String,
+    playlistName: String,
+    vidComments: String,
+    vidRating: String
+})
+
+const Video = mongoose.model('Video', VideoSchema);
 // ________________________
 // MIDDLEWARE
 // ________________________
