@@ -37,13 +37,13 @@ mongoose.connection
 // MODELS
 // ________________________
 
-const PlaylistSchema = new mongoose.Schema({
+const VidPlaylistSchema = new mongoose.Schema({
     userName: String,
     playlistName: String,
     playlistTags: String,
 });
 
-const Playlist = mongoose.model('Playlist', PlaylistSchema);
+const VidPlaylist = mongoose.model('VidPlaylist', VidPlaylistSchema);
 
 const VideoSchema = new mongoose.Schema({
     vidName: String,
