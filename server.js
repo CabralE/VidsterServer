@@ -105,6 +105,7 @@ app.get("/playlist/:id/", async (req, res) => {
   res.json(videos);
 });
 
+//TODO Remaining video routes
 // // Video create route
 // app.post("/playlist", async (req, res) => {
 //     const playlist = await VidPlaylist.create(req.body);
