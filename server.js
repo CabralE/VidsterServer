@@ -50,7 +50,7 @@ const VideoSchema = new mongoose.Schema({
     vidUrl: String,
     vidChannel: String,
     vidCategories: String,
-    playlistName: String,
+    playlistID: String,
     vidComments: String,
     vidRating: String
 })
