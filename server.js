@@ -96,6 +96,14 @@ app.delete("/playlist/:id", async (req, res) => {
     res.json({ message: "Playlist deleted" });
 });
 
+//Playlist Show Route & Video Index Route
+app.get("/playlist/:id/", async (req, res) => {
+  const playlist = await VidPlaylist.find(req.params.id);
+  console.log(playlist)  
+  res.json(playlists);
+});
+
+
 
 // ________________________
 // Listener
