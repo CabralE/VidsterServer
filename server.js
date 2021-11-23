@@ -74,25 +74,25 @@ app.get('/', (req, res) => {
 
 // Playlist index route
 app.get("/playlist", async (req, res) => {
-    const playlists = await Playlist.find();    
+    const playlists = await VidPlaylist.find();    
     res.json(playlists);
 });
 
 // Playlist create route
 app.post("/playlist", async (req, res) => {
-    const playlist = await Playlist.create(req.body);
+    const playlist = await VidPlaylist.create(req.body);
     res.json(playlist);
 });
 
 // Playlist update route
 app.put("/playlist/:id", async (req, res) => {  
-    const playlist = await Playlist.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const playlist = await VidPlaylist.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(playlist);
 });
 
 // Playlist delete route
 app.delete("/playlist/:id", async (req, res) => {
-    await Playlist.findByIdAndDelete(req.params.id);
+    await VidPlaylist.findByIdAndDelete(req.params.id);
     res.json({ message: "Playlist deleted" });
 });
 
