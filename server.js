@@ -49,7 +49,7 @@ const VideoSchema = new mongoose.Schema({
     vidName: String,
     vidUrl: String,
     vidChannel: String,
-    vidCategories: String,
+    vidCategories: String,[0].playlistIDgit
     playlistID: String,
     vidComments: String,
     vidRating: String
@@ -74,7 +74,8 @@ app.get('/', (req, res) => {
 
 // Playlist index route
 app.get("/playlist", async (req, res) => {
-    const playlists = await VidPlaylist.find();    
+    const playlists = await VidPlaylist.find();
+    console.log(playlists)
     res.json(playlists);
 });
 
@@ -110,11 +111,11 @@ app.get("/playlist/:id/", async (req, res) => {
     });
     
     //TODO Remaining video routes
-// // Video update route
-// app.put("/playlist/:id", async (req, res) => {  
-//     const playlist = await VidPlaylist.findByIdAndUpdate(req.params.id, req.body, { new: true });
-//     res.json(playlist);
-// });
+// Video update route
+app.put("/playlist/:vidID", async (req, res) => {  
+    const video = await Video.findByIdAndUpdate(req.params.vidID, req.body, { new: true });
+    res.json(video);
+});
 
 //Video delete route
 app.delete("/playlist/:id/:vidID", async (req, res) => {
