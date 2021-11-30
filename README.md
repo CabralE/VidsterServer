@@ -1,8 +1,7 @@
 # Vidster
 A video saving, sharing, and playlisting web application by David Flores, Edward Cabral and Craig McGowan
 
-
-##Links
+## Links
 Deployed App: https://mystifying-hermann-6ecd7b.netlify.app/
 
 Deployed Backend: https://playlist-backend1.herokuapp.com/playlist/
@@ -27,25 +26,10 @@ Figma Planning Board: https://www.figma.com/file/WFQKqTVwkm94Qqhbx8fFNO/MyPlayli
 # Backend Architecture
 
 ## Route Table
+<img width="379" alt="2021-11-30_14 49 36" src="https://user-images.githubusercontent.com/87156044/144143055-2fe54609-2673-4974-b6e3-67729fda9003.png">
 
-
-# Technologies Used
-
-### React
-### React Router 6
-### Express
-### MongoDB, Mongoose
-### CSS
-### Google Fonts, React Router Icons
-### Youtube API
-### Firebase (Pending)
-
-
-## Challenges/Learning Experiences
-Our goal from the start of the project was to approach this as a chance to challenge ourselves and learn collaboratively. We decided to use react router 6 which meant we spent a good amount of time googling how to do nested routes, incorporate new hooks like useNavigate, useParams, and get used to the new syntax. We also wanted to incorporate an API call so we researched the youTube API and figured out how to pull in data from search and then embed videos from the returned data as well as adding videos to our database from the API call. Our app was designed to be user based, meaning that you would log in and have personalized playlists that you made yourself. For an additional challenge we decided to use Firebase which would allow us to deliver a seamless and intuitive user system.
-
-Learning all these new technologies and taking on the challenges meant that in the end, we may not have been able to add as much polish to the app as we wanted, and while in the end it was a great experience an argument could be made that due to the limited time window, we may have been better served using methods and technologies we were more experienced in.
-
+## Database Diagram
+<img width="676" alt="2021-11-30_14 48 44" src="https://user-images.githubusercontent.com/87156044/144143100-c2868fb0-0031-4f1d-b476-c1ce05185c59.png">
 
 
 ## Planned Upgrades and Improvements
