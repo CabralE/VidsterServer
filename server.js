@@ -49,7 +49,7 @@ const VideoSchema = new mongoose.Schema({
     vidName: String,
     vidUrl: String,
     vidChannel: String,
-    vidCategories: String,[0].playlistIDgit
+    vidCategories: String,
     playlistID: String,
     vidComments: String,
     vidRating: String
