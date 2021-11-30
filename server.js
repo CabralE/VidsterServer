@@ -112,7 +112,7 @@ app.get("/playlist/:id/", async (req, res) => {
     
     //TODO Remaining video routes
 // Video update route
-app.put("/playlist/:vidID", async (req, res) => {  
+app.put("/playlist/update/:vidID", async (req, res) => {  
     const video = await Video.findByIdAndUpdate(req.params.vidID, req.body, { new: true });
     res.json(video);
 });
