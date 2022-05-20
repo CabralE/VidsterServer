@@ -2,7 +2,7 @@
 A video saving, sharing, and playlisting web application by David Flores, Edward Cabral and Craig McGowan
 
 ## Links
-Deployed App: https://mystifying-hermann-6ecd7b.netlify.app/
+Deployed App: https://vidster.netlify.app/
 
 Deployed Backend: https://playlist-backend1.herokuapp.com/playlist/
 
