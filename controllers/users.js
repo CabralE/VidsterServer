@@ -29,10 +29,16 @@ export const signUp = async (req, res) => {
       throw new Error("Password must be up to 6 characters");
     }
 
-    const userExists = await User.findOne({ email });
-    if (userExists) {
+    const userEmailExists = await User.findOne({ email });
+    if (userEmailExists) {
       res.status(400);
       throw new Error("Email has already been registered");
+    }
+
+    const usernameExists = await User.findOne({ username });
+    if (usernameExists) {
+      res.status(400);
+      throw new Error("Username already exists");
     }
 
     const password_digest = await bcrypt.hash(password, SALT_ROUNDS);
