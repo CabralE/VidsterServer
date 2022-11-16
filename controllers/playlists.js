@@ -2,7 +2,7 @@ import Playlist from "../models/Playlist.js";
 
 export const getPlaylists = async (req, res) => {
   try {
-    const playlists = await Playlist.find();
+    const playlists = await Playlist.find().populate("videos");
     res.json(playlists);
   } catch (error) {
     console.log(error);

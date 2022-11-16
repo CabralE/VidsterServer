@@ -109,7 +109,10 @@ export const verify = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const user = await User.findById(req.params.userid).populate("playlists");
+    const user = await User.findById(req.params.userid).populate(
+      "playlists",
+      "videos"
+    );
     res.json(user);
   } catch (error) {
     res.status(400).send("User cannot be found");

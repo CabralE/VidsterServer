@@ -11,6 +11,5 @@ router.get("/", (req, res) => res.send("This is the api root!"));
 router.use("/", usersRoutes);
 router.use("/", playlistsRoutes);
 router.use("/", videosRoutes);
-// router.use("/students", studentRoutes);
 
 export default router;

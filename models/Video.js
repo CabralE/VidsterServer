@@ -6,7 +6,7 @@ let Video = new Schema({
   videoUrl: { type: String },
   videoChannel: { type: String },
   videoCategories: { type: String },
-  playlist: { type: Schema.Types.ObjectId, ref: "playlists" },
+  // playlist: { type: Schema.Types.ObjectId, ref: "playlists" },
 });
 
 export default mongoose.model("videos", Video);
