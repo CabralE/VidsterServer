@@ -40,7 +40,10 @@ export const createPlaylist = async (req, res) => {
 export const updatePlaylist = async (req, res) => {
   try {
     const { playlist_id } = req.params;
+    const playlistSample = await Playlist.findById(playlist_id);
     const playlist = await Playlist.findByIdAndUpdate(playlist_id, req.body);
+    console.log(playlistSample.user.headers.authorization.split(" ")[1]);
+    // console.log(req.headers.authorization.split(" ")[1]);
     res.status(200).json(playlist);
   } catch (error) {
     console.log(error);

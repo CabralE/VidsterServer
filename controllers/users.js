@@ -3,9 +3,11 @@ import jwt from "jsonwebtoken";
 
 import User from "../models/User.js";
 
+// Only for development use
 let SALT_ROUNDS = 11;
 let TOKEN_KEY = "areallylonggoodkey";
 
+// Production use
 if (process.env.NODE_ENV === "production") {
   SALT_ROUNDS = Number(process.env.SALT_ROUNDS);
   TOKEN_KEY = process.env.TOKEN_KEY;
@@ -70,22 +72,21 @@ export const signUp = async (req, res) => {
 export const signIn = async (req, res) => {
   try {
     const { email, password } = req.body;
-    const user = await User.findOne({ email: email })
-      .select("username email password_digest playlists")
-      .populate("playlists");
+    const user = await User.findOne({ email: email }).select(
+      "username email password_digest"
+    );
     if (await bcrypt.compare(password, user.password_digest)) {
       const payload = {
         id: user._id,
         username: user.username,
         email: user.email,
-        // playlists: user.playlists,
         exp: parseInt(exp.getTime() / 1000),
       };
 
       const token = jwt.sign(payload, TOKEN_KEY);
       res.status(201).json({ token });
     } else {
-      res.status(401).send("Please enter the correct username or password");
+      res.status(401).send("Invalid Credentials");
     }
   } catch (error) {
     console.log(error.message);
@@ -106,4 +107,22 @@ export const verify = async (req, res) => {
   }
 };
 
+export const getUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.userid).populate("playlists");
+    res.json(user);
+  } catch (error) {
+    res.status(400).send("User cannot be found");
+  }
+};
+
+export const getUsers = async (req, res) => {
+  try {
+    const users = await User.find({}).populate("playlists");
+    res.json(users);
+  } catch (error) {
+    console.log(error.message);
+    res.status(400).send("can't get users!");
+  }
+};
 export const changePassword = async (req, res) => {};
