@@ -13,7 +13,7 @@ export const getPlaylists = async (req, res) => {
 export const getPlaylist = async (req, res) => {
   try {
     const { playlist_id } = req.params;
-    const playlist = await Playlist.findById(playlist_id);
+    const playlist = await Playlist.findById(playlist_id).populate("videos");
 
     if (playlist) {
       return res.json(playlist);
