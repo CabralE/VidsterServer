@@ -48,7 +48,7 @@ export const signUp = async (req, res) => {
       username,
       email,
       password_digest,
-      //   playlists: [],
+      playlists: [],
     });
 
     await user.save();
@@ -57,7 +57,7 @@ export const signUp = async (req, res) => {
       id: user._id,
       username: user.username,
       email: user.email,
-      //   playlists: [],
+      playlists: [],
       exp: parseInt(exp.getTime() / 1000),
     };
 
@@ -80,6 +80,7 @@ export const signIn = async (req, res) => {
         id: user._id,
         username: user.username,
         email: user.email,
+        playlists: user.playlists,
         exp: parseInt(exp.getTime() / 1000),
       };
 

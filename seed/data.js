@@ -12,7 +12,7 @@ const insertData = async () => {
     username: "chris",
     email: "chris@super.gmail.com",
     password_digest: await bcrypt.hash("!a$ecureP@ssw0Rd55!", 11),
-    // playlists: [],
+    playlists: [],
   });
   await user1.save();
 
@@ -20,7 +20,7 @@ const insertData = async () => {
     username: "raul",
     email: "raul@super.gmail.com",
     password_digest: await bcrypt.hash("!$h0pp3R1", 11),
-    // playlists: [],
+    playlists: [],
   });
   await user2.save();
 
