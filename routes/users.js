@@ -9,5 +9,6 @@ router.get("/verify", controllers.verify);
 router.post("/change-password", controllers.changePassword);
 router.get("/users", controllers.getUsers);
 router.get("/user/:userid", controllers.getUser);
+router.put("/user/:userid", controllers.updateUserPlaylist);
 
 export default router;
