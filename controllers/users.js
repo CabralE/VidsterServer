@@ -129,4 +129,18 @@ export const getUsers = async (req, res) => {
     res.status(400).send("can't get users!");
   }
 };
+
+export const updateUserPlaylist = async (req, res) => {
+  try {
+    // const { id } = req.params;
+    const user = await User.findByIdAndUpdate(req.params.userid, req.body, {
+      new: true,
+    });
+    console.log(user, req.body);
+    res.status(201).json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(404).send("can't update user's playlist");
+  }
+};
 export const changePassword = async (req, res) => {};
