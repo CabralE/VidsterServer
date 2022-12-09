@@ -132,11 +132,9 @@ export const getUsers = async (req, res) => {
 
 export const updateUserPlaylist = async (req, res) => {
   try {
-    // const { id } = req.params;
     const user = await User.findByIdAndUpdate(req.params.userid, req.body, {
       new: true,
     });
-    console.log(user, req.body);
     res.status(201).json(user);
   } catch (error) {
     console.log(error);
