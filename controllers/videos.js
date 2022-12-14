@@ -1,4 +1,7 @@
 import Video from "../models/Video.js";
+import fetch from "node-fetch";
+let YOUTUBE_API = process.env.YOUTUBE_KEY || "no key";
+let youtubeURL = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=`;
 
 export const getVideos = async (req, res) => {
   try {
@@ -55,6 +58,20 @@ export const deleteVideo = async (req, res) => {
       return res.status(200).send("Video has been deleted");
     }
     throw new Error("Video not found!");
+  } catch (error) {
+    console.log(error);
+    res.send(500).json({ error: error.message });
+  }
+};
+
+export const searchVideos = async (req, res) => {
+  try {
+    let { word_id } = req.params;
+    let key = `&key=${YOUTUBE_API}`;
+    let fullURL = youtubeURL + word_id + key;
+    await fetch(fullURL)
+      .then((response) => response.json())
+      .then((data) => res.send(data));
   } catch (error) {
     console.log(error);
     res.send(500).json({ error: error.message });
